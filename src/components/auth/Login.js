@@ -57,7 +57,6 @@ export const Login = props => {
                         textAlign: "center"
                     }}>
                         <Button type="submit" variant="success">Sign In</Button>
-                        {/* <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button> */}
                     </fieldset>
                 </form>
             </section>
