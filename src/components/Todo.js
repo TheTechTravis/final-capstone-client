@@ -11,7 +11,7 @@ export const Todo = () => (
             if (localStorage.getItem("todo_token")) {
                 return <>
                     <Route render={NavBar} />
-                    {/* <Route render={props => <ApplicationViews {...props} />} /> */}
+                    <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {
                 return <Redirect to="/login" />
