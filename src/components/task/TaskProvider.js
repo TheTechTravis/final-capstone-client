@@ -40,6 +40,16 @@ export const TaskProvider = (props) => {
             .then(getTasks)
     }
 
+    const deleteTask = (taskId) => {
+        return fetch(`http://localhost:8000/tasks/${taskId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("todo_token")}`
+            }
+        })
+            .then(getTasks)
+    }
+
     const markComplete = (id) => {
         return fetch(`http://localhost:8000/tasks/${id}`, {
             method: "PATCH",
@@ -55,7 +65,7 @@ export const TaskProvider = (props) => {
 
 
     return (
-        <TaskContext.Provider value={{ tasks, getTasks, createTask, markComplete, updateTask }} >
+        <TaskContext.Provider value={{ tasks, getTasks, createTask, markComplete, updateTask, deleteTask }} >
             { props.children}
         </TaskContext.Provider>
     )

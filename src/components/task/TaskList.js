@@ -9,8 +9,6 @@ export const TaskList = (props) => {
         getTasks()
     }, [])
 
-    console.log(tasks)
-
     return (
         <article className="taskList">
             {

@@ -5,12 +5,9 @@ import { CompletedTask } from "./CompletedTask"
 export const CompletedTaskList = (props) => {
     const { tasks, getTasks } = useContext(TaskContext)
 
-
     useEffect(() => {
         getTasks()
     }, [])
-
-    console.log(tasks)
 
     return (
         <article className="completedTaskList">

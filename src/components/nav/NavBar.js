@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import Button from "react-bootstrap/Button"
 import "./NavBar.css"
 
 export const NavBar = (props) => {
@@ -23,12 +24,10 @@ export const NavBar = (props) => {
             {
                 (localStorage.getItem("todo_token") !== null) ?
                     <div className="nav-item">
-                        <button className="nav-link fakeLink"
-                            onClick={() => {
-                                localStorage.removeItem("todo_token")
-                                props.history.push({ pathname: "/" })
-                            }}
-                        >Logout</button>
+                        <Button variant="danger" onClick={() => {
+                            localStorage.removeItem("todo_token")
+                            props.history.push({ pathname: "/" })
+                        }}>Logout</Button>
                     </div> :
                     <>
                         <li className="nav-item">
