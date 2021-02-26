@@ -17,7 +17,10 @@ export const TaskList = (props) => {
     return (
         <article className="taskList">
             {
-                tasks.map(task => {
+
+                tasks.filter(task => {
+                    return task.is_complete == false
+                }).map(task => {
                     return <Task key={task.id} task={task} />
                 })
             }

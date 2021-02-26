@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { TaskProvider } from "./task/TaskProvider"
 import { TaskList } from "./task/TaskList"
-// import { CompleteTaskList } from "./task/CompleteTaskList"
+import { CompletedTaskList } from "./task/CompletedTaskList"
 // import { TaskForm } from "./task/TaskForm"
 
 export const ApplicationViews = () => {
@@ -21,7 +21,7 @@ export const ApplicationViews = () => {
             {/* Completed Tasks View */}
             <TaskProvider>
                 <Route exact path="/completed">
-                    {/* <CompletedTaskList /> */}
+                    <CompletedTaskList />
                 </Route>
             </TaskProvider>
 
