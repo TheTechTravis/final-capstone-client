@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { TaskContext } from "./TaskProvider.js"
+import { TaskContext } from "../task/TaskProvider.js"
 import { CompletedTask } from "./CompletedTask"
 
 export const CompletedTaskList = (props) => {
