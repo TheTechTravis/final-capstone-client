@@ -25,6 +25,18 @@ export const TaskProvider = (props) => {
             },
             body: JSON.stringify(newTask)
         })
+            .then(newTask)
+    }
+
+    const updateTask = (updatedTask) => {
+        return fetch(`http://localhost:8000/tasks/${updatedTask.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("todo_token")}`
+            },
+            body: JSON.stringify(updatedTask)
+        })
             .then(getTasks)
     }
 
@@ -43,7 +55,7 @@ export const TaskProvider = (props) => {
 
 
     return (
-        <TaskContext.Provider value={{ tasks, getTasks, createTask, markComplete }} >
+        <TaskContext.Provider value={{ tasks, getTasks, createTask, markComplete, updateTask }} >
             { props.children}
         </TaskContext.Provider>
     )
