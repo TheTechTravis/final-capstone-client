@@ -28,9 +28,22 @@ export const TaskProvider = (props) => {
             .then(getTasks)
     }
 
+    const markComplete = (id) => {
+        return fetch(`http://localhost:8000/tasks/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("todo_token")}`
+            },
+            body: JSON.stringify({ "is_complete": true })
+        })
+            .then(getTasks)
+    }
+
 
     return (
-        <TaskContext.Provider value={{ tasks, getTasks, createTask }} >
+        <TaskContext.Provider value={{ tasks, getTasks, createTask, markComplete }} >
             { props.children}
         </TaskContext.Provider>
     )
