@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { TaskContext } from "./TaskProvider"
+import Button from "react-bootstrap/Button"
+
 export const TaskForm = (props) => {
 
     const { tasks, getTasks, createTask, updateTask } = useContext(TaskContext)
@@ -52,7 +54,6 @@ export const TaskForm = (props) => {
     }
     return (
         <>
-            <p>Update Your Task</p>
             <form className="taskForm">
                 <fieldset>
                     <label> Title</label>
@@ -63,12 +64,12 @@ export const TaskForm = (props) => {
                     {task && <input type="text" name="content" defaultValue={task.content} onChange={handleControlledInputChange}></input>}
                 </fieldset>
             </form>
-            <button type="submit"
+            <Button type="submit"
                 onClick={event => {
                     event.preventDefault()
                     constructNewTask()
-                }}> submit
-            </button>
+                }}> Submit
+            </Button>
         </>
     )
 }

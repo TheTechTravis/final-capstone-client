@@ -6,7 +6,9 @@ import "./Task.css"
 
 
 export const Task = ({ task }) => {
+
     const { markComplete, deleteTask } = useContext(TaskContext)
+
     return (
         < section key={`task--${task.id}`} className="taskCard" >
             <div className="task__title">Title: {task.title} </div>
