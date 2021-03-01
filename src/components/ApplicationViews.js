@@ -9,7 +9,7 @@ export const ApplicationViews = () => {
     return <>
         <main style={{
             margin: "5rem 2rem",
-            backgroundColor: "lightgoldenrodyellow"
+            backgroundColor: "#gray"
         }}>
             {/* Current Tasks View */}
             <TaskProvider>

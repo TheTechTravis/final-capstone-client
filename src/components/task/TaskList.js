@@ -10,15 +10,18 @@ export const TaskList = (props) => {
     }, [])
 
     return (
-        <article className="taskList">
-            {
-                // Return tasks who are marked as incomplete
-                tasks.filter(task => { return task.is_complete == false })
-                    // Map through returned results and render them to DOM
-                    .map(task => {
-                        return <Task key={task.id} task={task} />
-                    })
-            }
-        </article>
+        <>
+            <h1 style={{ textAlign: "center" }}> Current Tasks </h1>
+            <article className="taskList">
+                {
+                    // Return tasks who are marked as incomplete
+                    tasks.filter(task => { return task.is_complete == false })
+                        // Map through returned results and render them to DOM
+                        .map(task => {
+                            return <Task key={task.id} task={task} />
+                        })
+                }
+            </article>
+        </>
     )
 }

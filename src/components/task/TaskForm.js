@@ -54,13 +54,14 @@ export const TaskForm = (props) => {
     }
     return (
         <>
+            <h1 style={{ textAlign: "center" }}> Task Form </h1>
             <form className="taskForm">
                 <fieldset>
                     <label> Title</label>
                     {task && <input type="text" name="title" defaultValue={task.title} onChange={handleControlledInputChange}></input>}
                 </fieldset>
                 <fieldset>
-                    <label> Content</label>
+                    <label> Content </label>
                     {task && <input type="text" name="content" defaultValue={task.content} onChange={handleControlledInputChange}></input>}
                 </fieldset>
             </form>
@@ -68,7 +69,7 @@ export const TaskForm = (props) => {
                 onClick={event => {
                     event.preventDefault()
                     constructNewTask()
-                }}> Submit
+                }}> Create
             </Button>
         </>
     )
