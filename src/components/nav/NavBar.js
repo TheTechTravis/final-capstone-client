@@ -9,7 +9,7 @@ export const NavBar = (props) => {
     return (
 
         <Navbar variant="dark" bg="dark" expand="lg">
-            <Navbar.Brand href="#home">Travis' Todos</Navbar.Brand>
+            <Navbar.Brand href="/">Travis' Todos</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Nav className="ml-auto">
                 <Nav.Link href="/create"> Create a Task </Nav.Link>

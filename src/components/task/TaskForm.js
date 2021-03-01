@@ -5,22 +5,38 @@ import Button from "react-bootstrap/Button"
 export const TaskForm = (props) => {
 
     const { tasks, getTasks, createTask, updateTask } = useContext(TaskContext)
+
+    // Set task into state to be manipulated later
     const [task, setTask] = useState({})
 
     useEffect(() => {
         getTasks()
     }, [])
 
-    const editMode = props.match.params.hasOwnProperty("taskId")  // true or false
+    useEffect(() => {
+        getTaskInEditMode()
+    }, [tasks])
+
+    /* 
+        Edit mode evaluates to true if a `taskId` is found
+        in the address bar otherwise it evaluates to false.
+     */
+    const editMode = props.match.params.hasOwnProperty("taskId")
+
+    /*
+        When a form field changes, create a new task object
+        and set it in state.
+    */
     const handleControlledInputChange = (event) => {
         const newTask = Object.assign({}, task)
         newTask[event.target.name] = event.target.value
         setTask(newTask)
     }
-    useEffect(() => {
-        getTaskInEditMode()
-    }, [tasks])
 
+    /*
+        If editMode is true, parse URL and grab the taskId value.
+        Find a single task who's id matches the taskId from URL.
+    */
     const getTaskInEditMode = () => {
         if (editMode) {
             const taskId = parseInt(props.match.params.taskId)
@@ -29,7 +45,13 @@ export const TaskForm = (props) => {
         }
     }
 
-    // making the new object on submit
+    /*
+        1. Get current user.
+        2. If editMode evaluates to true, create a new task object
+        from the task set in state.
+        3. Invoke updateTask with the new task object (PUT method).
+        4. Redirect to TaskList view.
+    */
     const constructNewTask = () => {
         const user_id = parseInt(localStorage.getItem("todo_token"))
         if (editMode) {
@@ -41,6 +63,7 @@ export const TaskForm = (props) => {
                 content: task.content,
                 is_complete: false
             }
+
             updateTask(newTask).then(props.history.push("/"))
         }
         else {
