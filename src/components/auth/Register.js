@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import Button from "react-bootstrap/Button"
 import "./Auth.css"
 
 export const Register = (props) => {
@@ -47,7 +48,7 @@ export const Register = (props) => {
 
             <dialog className="dialog dialog--password" ref={passwordDialog}>
                 <div>Passwords do not match</div>
-                <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
+                <Button variant="danger" className="button--close" onClick={e => passwordDialog.current.close()}>Close</Button>
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
@@ -75,7 +76,7 @@ export const Register = (props) => {
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
+                    <Button className="btn btn-1 btn-sep icon-send" type="submit">Register</Button>
                 </fieldset>
             </form>
             <section className="link--register">

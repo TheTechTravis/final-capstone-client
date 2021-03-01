@@ -39,7 +39,7 @@ export const Login = props => {
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={invalidDialog}>
                 <div>Email or password was not valid.</div>
-                <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
+                <Button variant="danger" className="button--close" onClick={e => invalidDialog.current.close()}> Close </Button>
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
@@ -56,7 +56,7 @@ export const Login = props => {
                     <fieldset style={{
                         textAlign: "center"
                     }}>
-                        <Button type="submit" variant="success">Sign In</Button>
+                        <Button type="submit" variant="primary"> Sign In </Button>
                     </fieldset>
                 </form>
             </section>
