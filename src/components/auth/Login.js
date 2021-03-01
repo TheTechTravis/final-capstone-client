@@ -61,7 +61,7 @@ export const Login = props => {
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <Link to="/register" style={{ color: "white" }}>Not a member yet?</Link>
             </section>
         </main>
     )

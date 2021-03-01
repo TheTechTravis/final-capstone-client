@@ -79,8 +79,8 @@ export const Register = (props) => {
                     <Button className="btn btn-1 btn-sep icon-send" type="submit">Register</Button>
                 </fieldset>
             </form>
-            <section className="link--register">
-                Already registered? <Link to="/login">Login</Link>
+            <section className="link--register" style={{ color: "white" }}>
+                Already registered? <Link to="/login" style={{ color: "purple" }}>Login</Link>
             </section>
         </main>
     )
